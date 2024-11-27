@@ -7,7 +7,7 @@ gdjs.MenuCode.GDexitObjects2= [];
 
 
 gdjs.MenuCode.mapOfGDgdjs_9546MenuCode_9546GDexitObjects1Objects = Hashtable.newFrom({"exit": gdjs.MenuCode.GDexitObjects1});
-gdjs.MenuCode.userFunc0x958b20 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.MenuCode.userFunc0xad2d88 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 function removeIframe() {
     const iframe = document.querySelector('iframe');
@@ -44,13 +44,13 @@ gdjs.MenuCode.eventsList0 = function(runtimeScene) {
 
 var objects = [];
 objects.push.apply(objects,gdjs.MenuCode.GDexitObjects1);
-gdjs.MenuCode.userFunc0x958b20(runtimeScene, objects);
+gdjs.MenuCode.userFunc0xad2d88(runtimeScene, objects);
 
 }
 
 
 };gdjs.MenuCode.mapOfGDgdjs_9546MenuCode_9546GDNewTextObjects1Objects = Hashtable.newFrom({"NewText": gdjs.MenuCode.GDNewTextObjects1});
-gdjs.MenuCode.userFunc0x8a8020 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.MenuCode.userFunc0xa7d4d0 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 if (gdjs.evtTools.input.cursorOnObject(runtimeScene.getObjects("NewText"), runtimeScene, true, false) && 
     gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left")) {
@@ -131,7 +131,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(10164380);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(9013324);
 }
 }
 }
@@ -158,7 +158,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(9638628);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(9017116);
 }
 }
 }
@@ -178,7 +178,7 @@ gdjs.copyArray(runtimeScene.getObjects("NewText"), gdjs.MenuCode.GDNewTextObject
 
 var objects = [];
 objects.push.apply(objects,gdjs.MenuCode.GDNewTextObjects1);
-gdjs.MenuCode.userFunc0x8a8020(runtimeScene, objects);
+gdjs.MenuCode.userFunc0xa7d4d0(runtimeScene, objects);
 
 }
 

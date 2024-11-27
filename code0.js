@@ -22,14 +22,14 @@ gdjs.RegistroCode.GDM_9595CHECK_9595REGISTERObjects1= [];
 gdjs.RegistroCode.GDM_9595CHECK_9595REGISTERObjects2= [];
 gdjs.RegistroCode.GDM_9595CLAVE_9595CONTEN_9595_9595_9595Objects1= [];
 gdjs.RegistroCode.GDM_9595CLAVE_9595CONTEN_9595_9595_9595Objects2= [];
-gdjs.RegistroCode.GDM_9595CLAVE_9595TXTObjects1= [];
-gdjs.RegistroCode.GDM_9595CLAVE_9595TXTObjects2= [];
 gdjs.RegistroCode.GDgoogleRObjects1= [];
 gdjs.RegistroCode.GDgoogleRObjects2= [];
 gdjs.RegistroCode.GDLOG_9595INObjects1= [];
 gdjs.RegistroCode.GDLOG_9595INObjects2= [];
 gdjs.RegistroCode.GDSIGN_9595UPObjects1= [];
 gdjs.RegistroCode.GDSIGN_9595UPObjects2= [];
+gdjs.RegistroCode.GDLogoObjects1= [];
+gdjs.RegistroCode.GDLogoObjects2= [];
 
 
 gdjs.RegistroCode.mapOfGDgdjs_9546RegistroCode_9546GDLOG_95959595INObjects1Objects = Hashtable.newFrom({"LOG_IN": gdjs.RegistroCode.GDLOG_9595INObjects1});
@@ -48,7 +48,7 @@ isConditionTrue_0 = false;
 isConditionTrue_0 = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
 if (isConditionTrue_0) {
 isConditionTrue_0 = false;
-{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(9680636);
+{isConditionTrue_0 = runtimeScene.getOnceTriggers().triggerOnce(9188692);
 }
 }
 }
@@ -216,14 +216,14 @@ gdjs.RegistroCode.GDM_9595CHECK_9595REGISTERObjects1.length = 0;
 gdjs.RegistroCode.GDM_9595CHECK_9595REGISTERObjects2.length = 0;
 gdjs.RegistroCode.GDM_9595CLAVE_9595CONTEN_9595_9595_9595Objects1.length = 0;
 gdjs.RegistroCode.GDM_9595CLAVE_9595CONTEN_9595_9595_9595Objects2.length = 0;
-gdjs.RegistroCode.GDM_9595CLAVE_9595TXTObjects1.length = 0;
-gdjs.RegistroCode.GDM_9595CLAVE_9595TXTObjects2.length = 0;
 gdjs.RegistroCode.GDgoogleRObjects1.length = 0;
 gdjs.RegistroCode.GDgoogleRObjects2.length = 0;
 gdjs.RegistroCode.GDLOG_9595INObjects1.length = 0;
 gdjs.RegistroCode.GDLOG_9595INObjects2.length = 0;
 gdjs.RegistroCode.GDSIGN_9595UPObjects1.length = 0;
 gdjs.RegistroCode.GDSIGN_9595UPObjects2.length = 0;
+gdjs.RegistroCode.GDLogoObjects1.length = 0;
+gdjs.RegistroCode.GDLogoObjects2.length = 0;
 
 gdjs.RegistroCode.eventsList1(runtimeScene);
 gdjs.RegistroCode.GDC_9595EMAILObjects1.length = 0;
@@ -248,14 +248,14 @@ gdjs.RegistroCode.GDM_9595CHECK_9595REGISTERObjects1.length = 0;
 gdjs.RegistroCode.GDM_9595CHECK_9595REGISTERObjects2.length = 0;
 gdjs.RegistroCode.GDM_9595CLAVE_9595CONTEN_9595_9595_9595Objects1.length = 0;
 gdjs.RegistroCode.GDM_9595CLAVE_9595CONTEN_9595_9595_9595Objects2.length = 0;
-gdjs.RegistroCode.GDM_9595CLAVE_9595TXTObjects1.length = 0;
-gdjs.RegistroCode.GDM_9595CLAVE_9595TXTObjects2.length = 0;
 gdjs.RegistroCode.GDgoogleRObjects1.length = 0;
 gdjs.RegistroCode.GDgoogleRObjects2.length = 0;
 gdjs.RegistroCode.GDLOG_9595INObjects1.length = 0;
 gdjs.RegistroCode.GDLOG_9595INObjects2.length = 0;
 gdjs.RegistroCode.GDSIGN_9595UPObjects1.length = 0;
 gdjs.RegistroCode.GDSIGN_9595UPObjects2.length = 0;
+gdjs.RegistroCode.GDLogoObjects1.length = 0;
+gdjs.RegistroCode.GDLogoObjects2.length = 0;
 
 
 return;
