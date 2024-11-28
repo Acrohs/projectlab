@@ -30,6 +30,10 @@ gdjs.RegistroCode.GDSIGN_9595UPObjects1= [];
 gdjs.RegistroCode.GDSIGN_9595UPObjects2= [];
 gdjs.RegistroCode.GDLogoObjects1= [];
 gdjs.RegistroCode.GDLogoObjects2= [];
+gdjs.RegistroCode.GDBurger_9595ButtonObjects1= [];
+gdjs.RegistroCode.GDBurger_9595ButtonObjects2= [];
+gdjs.RegistroCode.GDPlansTXTObjects1= [];
+gdjs.RegistroCode.GDPlansTXTObjects2= [];
 
 
 gdjs.RegistroCode.mapOfGDgdjs_9546RegistroCode_9546GDLOG_95959595INObjects1Objects = Hashtable.newFrom({"LOG_IN": gdjs.RegistroCode.GDLOG_9595INObjects1});
@@ -224,6 +228,10 @@ gdjs.RegistroCode.GDSIGN_9595UPObjects1.length = 0;
 gdjs.RegistroCode.GDSIGN_9595UPObjects2.length = 0;
 gdjs.RegistroCode.GDLogoObjects1.length = 0;
 gdjs.RegistroCode.GDLogoObjects2.length = 0;
+gdjs.RegistroCode.GDBurger_9595ButtonObjects1.length = 0;
+gdjs.RegistroCode.GDBurger_9595ButtonObjects2.length = 0;
+gdjs.RegistroCode.GDPlansTXTObjects1.length = 0;
+gdjs.RegistroCode.GDPlansTXTObjects2.length = 0;
 
 gdjs.RegistroCode.eventsList1(runtimeScene);
 gdjs.RegistroCode.GDC_9595EMAILObjects1.length = 0;
@@ -256,6 +264,10 @@ gdjs.RegistroCode.GDSIGN_9595UPObjects1.length = 0;
 gdjs.RegistroCode.GDSIGN_9595UPObjects2.length = 0;
 gdjs.RegistroCode.GDLogoObjects1.length = 0;
 gdjs.RegistroCode.GDLogoObjects2.length = 0;
+gdjs.RegistroCode.GDBurger_9595ButtonObjects1.length = 0;
+gdjs.RegistroCode.GDBurger_9595ButtonObjects2.length = 0;
+gdjs.RegistroCode.GDPlansTXTObjects1.length = 0;
+gdjs.RegistroCode.GDPlansTXTObjects2.length = 0;
 
 
 return;

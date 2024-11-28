@@ -4,10 +4,12 @@ gdjs.MenuCode.GDNewTextObjects1= [];
 gdjs.MenuCode.GDNewTextObjects2= [];
 gdjs.MenuCode.GDexitObjects1= [];
 gdjs.MenuCode.GDexitObjects2= [];
+gdjs.MenuCode.GDIAObjects1= [];
+gdjs.MenuCode.GDIAObjects2= [];
 
 
 gdjs.MenuCode.mapOfGDgdjs_9546MenuCode_9546GDexitObjects1Objects = Hashtable.newFrom({"exit": gdjs.MenuCode.GDexitObjects1});
-gdjs.MenuCode.userFunc0xad2d88 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.MenuCode.userFunc0xa247d0 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 function removeIframe() {
     const iframe = document.querySelector('iframe');
@@ -44,13 +46,13 @@ gdjs.MenuCode.eventsList0 = function(runtimeScene) {
 
 var objects = [];
 objects.push.apply(objects,gdjs.MenuCode.GDexitObjects1);
-gdjs.MenuCode.userFunc0xad2d88(runtimeScene, objects);
+gdjs.MenuCode.userFunc0xa247d0(runtimeScene, objects);
 
 }
 
 
 };gdjs.MenuCode.mapOfGDgdjs_9546MenuCode_9546GDNewTextObjects1Objects = Hashtable.newFrom({"NewText": gdjs.MenuCode.GDNewTextObjects1});
-gdjs.MenuCode.userFunc0xa7d4d0 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.MenuCode.userFunc0xa0b7b0 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 if (gdjs.evtTools.input.cursorOnObject(runtimeScene.getObjects("NewText"), runtimeScene, true, false) && 
     gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left")) {
@@ -121,6 +123,27 @@ if (isConditionTrue_0) {
 
 {
 
+gdjs.copyArray(runtimeScene.getObjects("IA"), gdjs.MenuCode.GDIAObjects1);
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+for (var i = 0, k = 0, l = gdjs.MenuCode.GDIAObjects1.length;i<l;++i) {
+    if ( gdjs.MenuCode.GDIAObjects1[i].getBehavior("ButtonFSM").IsClicked((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) ) {
+        isConditionTrue_0 = true;
+        gdjs.MenuCode.GDIAObjects1[k] = gdjs.MenuCode.GDIAObjects1[i];
+        ++k;
+    }
+}
+gdjs.MenuCode.GDIAObjects1.length = k;
+if (isConditionTrue_0) {
+{gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Login", false);
+}}
+
+}
+
+
+{
+
 gdjs.copyArray(runtimeScene.getObjects("exit"), gdjs.MenuCode.GDexitObjects1);
 
 let isConditionTrue_0 = false;
@@ -178,7 +201,7 @@ gdjs.copyArray(runtimeScene.getObjects("NewText"), gdjs.MenuCode.GDNewTextObject
 
 var objects = [];
 objects.push.apply(objects,gdjs.MenuCode.GDNewTextObjects1);
-gdjs.MenuCode.userFunc0xa7d4d0(runtimeScene, objects);
+gdjs.MenuCode.userFunc0xa0b7b0(runtimeScene, objects);
 
 }
 
@@ -192,12 +215,16 @@ gdjs.MenuCode.GDNewTextObjects1.length = 0;
 gdjs.MenuCode.GDNewTextObjects2.length = 0;
 gdjs.MenuCode.GDexitObjects1.length = 0;
 gdjs.MenuCode.GDexitObjects2.length = 0;
+gdjs.MenuCode.GDIAObjects1.length = 0;
+gdjs.MenuCode.GDIAObjects2.length = 0;
 
 gdjs.MenuCode.eventsList1(runtimeScene);
 gdjs.MenuCode.GDNewTextObjects1.length = 0;
 gdjs.MenuCode.GDNewTextObjects2.length = 0;
 gdjs.MenuCode.GDexitObjects1.length = 0;
 gdjs.MenuCode.GDexitObjects2.length = 0;
+gdjs.MenuCode.GDIAObjects1.length = 0;
+gdjs.MenuCode.GDIAObjects2.length = 0;
 
 
 return;
