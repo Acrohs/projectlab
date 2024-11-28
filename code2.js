@@ -14,7 +14,7 @@ gdjs.LoginCode.GDButtonObjects1= [];
 gdjs.LoginCode.GDButtonObjects2= [];
 
 
-gdjs.LoginCode.userFunc0x9cdb60 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.LoginCode.userFunc0x9b8078 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 // Función para insertar saltos de línea más orgánicos, sin cortar palabras
 function addLineBreaksOrganic(text, lineLength = 80) {
@@ -101,7 +101,7 @@ gdjs.LoginCode.eventsList0 = function(runtimeScene) {
 
 var objects = [];
 objects.push.apply(objects,gdjs.LoginCode.GDjsObjects1);
-gdjs.LoginCode.userFunc0x9cdb60(runtimeScene, objects);
+gdjs.LoginCode.userFunc0x9b8078(runtimeScene, objects);
 
 }
 
