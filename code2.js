@@ -14,36 +14,30 @@ gdjs.LoginCode.GDButtonObjects1= [];
 gdjs.LoginCode.GDButtonObjects2= [];
 
 
-gdjs.LoginCode.userFunc0x8fd2f8 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.LoginCode.userFunc0x9cdb60 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
-// Función para insertar saltos de línea orgánicos sin cortar el mensaje
+// Función para insertar saltos de línea más orgánicos, sin cortar palabras
 function addLineBreaksOrganic(text, lineLength = 80) {
-    const sentences = text.split(/([.!?])\s*/); // Dividimos el texto en oraciones basadas en signos de puntuación
+    const words = text.split(' '); // Dividimos el texto en palabras
     let result = '';
     let currentLine = '';
 
-    sentences.forEach((sentence, index) => {
-        // Si es la última oración y la línea actual más la oración excede el límite
-        if ((currentLine + sentence).length > lineLength) {
+    words.forEach(word => {
+        // Si la línea actual más la nueva palabra es más larga que el límite
+        // insertamos un salto de línea antes de la palabra
+        if ((currentLine + word).length > lineLength) {
             if (currentLine.length > 0) {
                 result += currentLine + '\n'; // Añadimos la línea con salto de línea
                 currentLine = ''; // Reiniciamos la línea
             }
         }
-        
-        // Añadimos la oración a la línea actual
-        currentLine += sentence + ' ';
-        
-        // Si la oración termina con un signo de puntuación, agregamos un salto de línea
-        if (/[.!?]/.test(sentence)) {
-            result += currentLine.trim() + '\n'; // Añadimos la línea con salto de línea
-            currentLine = ''; // Reiniciamos la línea
-        }
+
+        currentLine += word + ' '; // Añadimos la palabra a la línea actual
     });
 
     // Añadimos cualquier línea restante
     if (currentLine.length > 0) {
-        result += currentLine.trim();
+        result += currentLine;
     }
 
     return result;
@@ -56,6 +50,7 @@ function sendTextToServer(inputText) {
     // Combinamos el mensaje predefinido con el texto del usuario
     const messageToSend = preDefinedMessage + inputText;
 
+    // Hacemos la solicitud al servidor en Replit
     fetch("https://aa4bf626-9d3e-44ab-bb8d-21a642450349-00-3v41u9enncpbj.riker.replit.dev/generate", {
         method: 'POST',
         headers: {
@@ -70,10 +65,11 @@ function sendTextToServer(inputText) {
         // Mostrar la respuesta de Gemini en GDevelop
         if (data.text) {
             console.log('Respuesta de Gemini:', data.text);
+
             // Insertamos saltos de línea orgánicos
             const formattedText = addLineBreaksOrganic(data.text, 80);
 
-            // Aquí puedes actualizar un objeto de texto en GDevelop
+            // Aquí puedes actualizar el texto en el objeto TextObject
             let textObject = runtimeScene.getObjects("TextObject")[0]; // Asumiendo que el objeto de texto se llama "TextObject"
             textObject.setString(formattedText); // Establecer el texto de la respuesta con saltos de línea orgánicos
         } else {
@@ -89,8 +85,12 @@ function sendTextToServer(inputText) {
 let userInput = runtimeScene.getObjects("TextInput")[0].getString(); 
 
 // Este evento se activa cuando el usuario hace clic en el objeto Button
+// Asumimos que el objeto Button está configurado correctamente en GDevelop
 // Al hacer clic en el botón, se ejecuta la función
 sendTextToServer(userInput);
+
+
+
 
 };
 gdjs.LoginCode.eventsList0 = function(runtimeScene) {
@@ -101,7 +101,7 @@ gdjs.LoginCode.eventsList0 = function(runtimeScene) {
 
 var objects = [];
 objects.push.apply(objects,gdjs.LoginCode.GDjsObjects1);
-gdjs.LoginCode.userFunc0x8fd2f8(runtimeScene, objects);
+gdjs.LoginCode.userFunc0x9cdb60(runtimeScene, objects);
 
 }
 
