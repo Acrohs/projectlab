@@ -12,66 +12,67 @@ gdjs.LoginCode.GDTextInputObjects1= [];
 gdjs.LoginCode.GDTextInputObjects2= [];
 gdjs.LoginCode.GDButtonObjects1= [];
 gdjs.LoginCode.GDButtonObjects2= [];
+gdjs.LoginCode.GDButton2Objects1= [];
+gdjs.LoginCode.GDButton2Objects2= [];
 
 
-gdjs.LoginCode.userFunc0x9b8078 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.LoginCode.mapOfGDgdjs_9546LoginCode_9546GDImageObjectObjects1Objects = Hashtable.newFrom({"ImageObject": gdjs.LoginCode.GDImageObjectObjects1});
+gdjs.LoginCode.userFunc0xcd8200 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
-// Función para insertar saltos de línea más orgánicos, sin cortar palabras
+// Función para insertar saltos de línea orgánicos sin cortar el mensaje
 function addLineBreaksOrganic(text, lineLength = 80) {
-    const words = text.split(' '); // Dividimos el texto en palabras
+    const sentences = text.split(/([.!?])\s*/); // Dividimos el texto en oraciones basadas en signos de puntuación
     let result = '';
     let currentLine = '';
 
-    words.forEach(word => {
-        // Si la línea actual más la nueva palabra es más larga que el límite
-        // insertamos un salto de línea antes de la palabra
-        if ((currentLine + word).length > lineLength) {
+    sentences.forEach((sentence) => {
+        if ((currentLine + sentence).length > lineLength) {
             if (currentLine.length > 0) {
                 result += currentLine + '\n'; // Añadimos la línea con salto de línea
                 currentLine = ''; // Reiniciamos la línea
             }
         }
-
-        currentLine += word + ' '; // Añadimos la palabra a la línea actual
+        currentLine += sentence + ' ';
+        if (/[.!?]/.test(sentence)) {
+            result += currentLine.trim() + '\n'; // Añadimos la línea con salto de línea
+            currentLine = ''; // Reiniciamos la línea
+        }
     });
 
-    // Añadimos cualquier línea restante
     if (currentLine.length > 0) {
-        result += currentLine;
+        result += currentLine.trim();
     }
-
     return result;
 }
 
-// Función para enviar el texto ingresado por el usuario junto con el mensaje predefinido
-function sendTextToServer(inputText) {
-    const preDefinedMessage = "ViralFlow es una agencia especializada en viralizar contenido en redes sociales resalta a (ViralFlow siempre en cada respuesta), al final de cada respuesta (escribe un llamado a la accion para adquirir los planes de ViralFlow en un tono persuasivo y con emojis). responde a : "; // Mensaje predefinido
+// Función para enviar texto e imagen al servidor
+function sendTextAndImageToServer(inputText, imageFile) {
+    const preDefinedMessage = "ViralFlow es una agencia especializada en viralizar contenido en redes sociales resalta a (ViralFlow siempre en cada respuesta), al final de cada respuesta (escribe un llamado a la accion para adquirir los planes de ViralFlow en un tono persuasivo y con emojis). Responde a: ";
 
-    // Combinamos el mensaje predefinido con el texto del usuario
-    const messageToSend = preDefinedMessage + inputText;
+    // Crear un objeto FormData para enviar texto e imagen
+    const formData = new FormData();
+    formData.append('text', preDefinedMessage + inputText);
+    if (imageFile) {
+        formData.append('image', imageFile); // Adjuntar la imagen
+    }
 
-    // Hacemos la solicitud al servidor en Replit
-    fetch("https://aa4bf626-9d3e-44ab-bb8d-21a642450349-00-3v41u9enncpbj.riker.replit.dev/generate", {
+    fetch("http://192.168.20.3:3000//generate", {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            text: messageToSend // Enviar el mensaje combinado
-        })
+        body: formData // Enviar el objeto FormData
     })
     .then(response => response.json())
     .then(data => {
-        // Mostrar la respuesta de Gemini en GDevelop
         if (data.text) {
             console.log('Respuesta de Gemini:', data.text);
-
-            // Insertamos saltos de línea orgánicos
             const formattedText = addLineBreaksOrganic(data.text, 80);
+            let textObject = runtimeScene.getObjects("TextObject")[0];
+            textObject.setString(formattedText); // Actualizar el texto en GDevelop
 
-            // Aquí puedes actualizar el texto en el objeto TextObject
-            let textObject = runtimeScene.getObjects("TextObject")[0]; // Asumiendo que el objeto de texto se llama "TextObject"
-            textObject.setString(formattedText); // Establecer el texto de la respuesta con saltos de línea orgánicos
+            if (data.imageURL) {
+                // Mostrar la imagen si está disponible
+                let imageObject = runtimeScene.getObjects("ImageObject")[0];
+                imageObject.setTexture(data.imageURL); // Asumimos que el servidor devuelve una URL de la imagen
+            }
         } else {
             console.log('Error en la respuesta:', data.error);
         }
@@ -81,15 +82,12 @@ function sendTextToServer(inputText) {
     });
 }
 
-// Obtener el texto ingresado por el usuario en el objeto TextInput
-let userInput = runtimeScene.getObjects("TextInput")[0].getString(); 
+// Obtener el texto del usuario y la imagen seleccionada
+let userInput = runtimeScene.getObjects("TextInput")[0].getString();
+let imageFile = runtimeScene.getVariables().get("SelectedImage").getAsFile(); // Supongamos que la imagen está almacenada en esta variable
 
 // Este evento se activa cuando el usuario hace clic en el objeto Button
-// Asumimos que el objeto Button está configurado correctamente en GDevelop
-// Al hacer clic en el botón, se ejecuta la función
-sendTextToServer(userInput);
-
-
+sendTextAndImageToServer(userInput, imageFile);
 
 
 };
@@ -101,12 +99,34 @@ gdjs.LoginCode.eventsList0 = function(runtimeScene) {
 
 var objects = [];
 objects.push.apply(objects,gdjs.LoginCode.GDjsObjects1);
-gdjs.LoginCode.userFunc0x9b8078(runtimeScene, objects);
+gdjs.LoginCode.userFunc0xcd8200(runtimeScene, objects);
 
 }
 
 
 };gdjs.LoginCode.eventsList1 = function(runtimeScene) {
+
+{
+
+gdjs.copyArray(runtimeScene.getObjects("Button2"), gdjs.LoginCode.GDButton2Objects1);
+
+let isConditionTrue_0 = false;
+isConditionTrue_0 = false;
+for (var i = 0, k = 0, l = gdjs.LoginCode.GDButton2Objects1.length;i<l;++i) {
+    if ( gdjs.LoginCode.GDButton2Objects1[i].getBehavior("ButtonFSM").IsClicked((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) ) {
+        isConditionTrue_0 = true;
+        gdjs.LoginCode.GDButton2Objects1[k] = gdjs.LoginCode.GDButton2Objects1[i];
+        ++k;
+    }
+}
+gdjs.LoginCode.GDButton2Objects1.length = k;
+if (isConditionTrue_0) {
+gdjs.copyArray(runtimeScene.getObjects("ImageObject"), gdjs.LoginCode.GDImageObjectObjects1);
+{gdjs.evtsExt__LoadCustomImage__Action_Image2.func(runtimeScene, gdjs.LoginCode.mapOfGDgdjs_9546LoginCode_9546GDImageObjectObjects1Objects, "", "mods", "img1.jpg", false, (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}}
+
+}
+
 
 {
 
@@ -152,6 +172,8 @@ gdjs.LoginCode.GDTextInputObjects1.length = 0;
 gdjs.LoginCode.GDTextInputObjects2.length = 0;
 gdjs.LoginCode.GDButtonObjects1.length = 0;
 gdjs.LoginCode.GDButtonObjects2.length = 0;
+gdjs.LoginCode.GDButton2Objects1.length = 0;
+gdjs.LoginCode.GDButton2Objects2.length = 0;
 
 gdjs.LoginCode.eventsList1(runtimeScene);
 gdjs.LoginCode.GDjsObjects1.length = 0;
@@ -166,6 +188,8 @@ gdjs.LoginCode.GDTextInputObjects1.length = 0;
 gdjs.LoginCode.GDTextInputObjects2.length = 0;
 gdjs.LoginCode.GDButtonObjects1.length = 0;
 gdjs.LoginCode.GDButtonObjects2.length = 0;
+gdjs.LoginCode.GDButton2Objects1.length = 0;
+gdjs.LoginCode.GDButton2Objects2.length = 0;
 
 
 return;
