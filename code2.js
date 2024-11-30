@@ -17,7 +17,7 @@ gdjs.LoginCode.GDButton2Objects2= [];
 
 
 gdjs.LoginCode.mapOfGDgdjs_9546LoginCode_9546GDImageObjectObjects1Objects = Hashtable.newFrom({"ImageObject": gdjs.LoginCode.GDImageObjectObjects1});
-gdjs.LoginCode.userFunc0x9813e0 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.LoginCode.userFunc0xaf3bf0 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 // Función para insertar saltos de línea orgánicos sin cortar el mensaje
 function addLineBreaksOrganic(text, lineLength = 80) {
@@ -52,11 +52,13 @@ function sendTextAndImageToServer(inputText, imageFile) {
     // Crear un objeto FormData para enviar texto e imagen
     const formData = new FormData();
     formData.append('text', preDefinedMessage + inputText);
-    if (imageFile) {
-        formData.append('image', imageFile); // Adjuntar la imagen
+    
+    // Asegúrate de que 'imageFile' es un archivo válido antes de agregarlo
+    if (imageFile instanceof File) {
+        formData.append('image', imageFile); // Adjuntar la imagen si es un archivo válido
     }
 
-    fetch("http://192.168.20.3:3000//generate", {
+    fetch("https://aa4bf626-9d3e-44ab-bb8d-21a642450349-00-3v41u9enncpbj.riker.replit.dev/generate", {
         method: 'POST',
         body: formData // Enviar el objeto FormData
     })
@@ -84,7 +86,9 @@ function sendTextAndImageToServer(inputText, imageFile) {
 
 // Obtener el texto del usuario y la imagen seleccionada
 let userInput = runtimeScene.getObjects("TextInput")[0].getString();
-let imageFile = runtimeScene.getVariables().get("SelectedImage").getAsFile(); // Supongamos que la imagen está almacenada en esta variable
+
+// Obtener la imagen seleccionada desde la variable
+let imageFile = runtimeScene.getVariables().get("SelectedImage").getString(); // Suponiendo que "SelectedImage" es una variable de tipo texto con la URL del archivo
 
 // Este evento se activa cuando el usuario hace clic en el objeto Button
 sendTextAndImageToServer(userInput, imageFile);
@@ -99,7 +103,7 @@ gdjs.LoginCode.eventsList0 = function(runtimeScene) {
 
 var objects = [];
 objects.push.apply(objects,gdjs.LoginCode.GDjsObjects1);
-gdjs.LoginCode.userFunc0x9813e0(runtimeScene, objects);
+gdjs.LoginCode.userFunc0xaf3bf0(runtimeScene, objects);
 
 }
 
