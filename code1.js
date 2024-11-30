@@ -9,7 +9,7 @@ gdjs.MenuCode.GDIAObjects2= [];
 
 
 gdjs.MenuCode.mapOfGDgdjs_9546MenuCode_9546GDexitObjects1Objects = Hashtable.newFrom({"exit": gdjs.MenuCode.GDexitObjects1});
-gdjs.MenuCode.userFunc0xcd68b0 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.MenuCode.userFunc0x97fa90 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 function removeIframe() {
     const iframe = document.querySelector('iframe');
@@ -46,13 +46,13 @@ gdjs.MenuCode.eventsList0 = function(runtimeScene) {
 
 var objects = [];
 objects.push.apply(objects,gdjs.MenuCode.GDexitObjects1);
-gdjs.MenuCode.userFunc0xcd68b0(runtimeScene, objects);
+gdjs.MenuCode.userFunc0x97fa90(runtimeScene, objects);
 
 }
 
 
 };gdjs.MenuCode.mapOfGDgdjs_9546MenuCode_9546GDNewTextObjects1Objects = Hashtable.newFrom({"NewText": gdjs.MenuCode.GDNewTextObjects1});
-gdjs.MenuCode.userFunc0xcd6cf8 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.MenuCode.userFunc0x97fed8 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 if (gdjs.evtTools.input.cursorOnObject(runtimeScene.getObjects("NewText"), runtimeScene, true, false) && 
     gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left")) {
@@ -201,7 +201,7 @@ gdjs.copyArray(runtimeScene.getObjects("NewText"), gdjs.MenuCode.GDNewTextObject
 
 var objects = [];
 objects.push.apply(objects,gdjs.MenuCode.GDNewTextObjects1);
-gdjs.MenuCode.userFunc0xcd6cf8(runtimeScene, objects);
+gdjs.MenuCode.userFunc0x97fed8(runtimeScene, objects);
 
 }
 

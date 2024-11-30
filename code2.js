@@ -17,7 +17,7 @@ gdjs.LoginCode.GDButton2Objects2= [];
 
 
 gdjs.LoginCode.mapOfGDgdjs_9546LoginCode_9546GDImageObjectObjects1Objects = Hashtable.newFrom({"ImageObject": gdjs.LoginCode.GDImageObjectObjects1});
-gdjs.LoginCode.userFunc0xcd8200 = function GDJSInlineCode(runtimeScene, objects) {
+gdjs.LoginCode.userFunc0x9813e0 = function GDJSInlineCode(runtimeScene, objects) {
 "use strict";
 // Función para insertar saltos de línea orgánicos sin cortar el mensaje
 function addLineBreaksOrganic(text, lineLength = 80) {
@@ -99,7 +99,7 @@ gdjs.LoginCode.eventsList0 = function(runtimeScene) {
 
 var objects = [];
 objects.push.apply(objects,gdjs.LoginCode.GDjsObjects1);
-gdjs.LoginCode.userFunc0xcd8200(runtimeScene, objects);
+gdjs.LoginCode.userFunc0x9813e0(runtimeScene, objects);
 
 }
 
@@ -122,7 +122,7 @@ for (var i = 0, k = 0, l = gdjs.LoginCode.GDButton2Objects1.length;i<l;++i) {
 gdjs.LoginCode.GDButton2Objects1.length = k;
 if (isConditionTrue_0) {
 gdjs.copyArray(runtimeScene.getObjects("ImageObject"), gdjs.LoginCode.GDImageObjectObjects1);
-{gdjs.evtsExt__LoadCustomImage__Action_Image2.func(runtimeScene, gdjs.LoginCode.mapOfGDgdjs_9546LoginCode_9546GDImageObjectObjects1Objects, "", "mods", "img1.jpg", false, (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+{gdjs.evtsExt__LoadCustomImage__Action_Image2.func(runtimeScene, gdjs.LoginCode.mapOfGDgdjs_9546LoginCode_9546GDImageObjectObjects1Objects, "", "mods", "img1.png", false, (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
 }}
 
 }
